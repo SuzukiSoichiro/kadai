@@ -5,14 +5,13 @@
 </head>
 <body>
     <div>Teachable Machine Image Model</div>
-    <div>更新2</div>
     <button type="button" onclick="init()">Start</button>
     
     <div id="webcam-container"></div>
     <div id="label-container"></div>
     
     <input type="file" onChange="imgPreView(event)">
-    <div id="img-container"></div> 
+    <div id="preview"></div> 
     
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
@@ -28,16 +27,16 @@
         function imgPreView(event) {
           var file = event.target.files[0];
           var reader = new FileReader();
-          var imgContainer = document.getElementById("img-container");
-          var imgContainerView = document.getElementById("img-container-view");
+          var preview = document.getElementById("preview");
+          var previewImage = document.getElementById("previewImage");
 
-          if(imgContainerView != null) {
-            imgContainer.removeChild(imgContainerView);
+          if(previewImage != null) {
+            preview.removeChild(previewImage);
           }
           reader.onload = function(event) {
             var img = document.createElement("img");
             img.setAttribute("src", reader.result);
-            img.setAttribute("id", "img-container-view");
+            img.setAttribute("id", "previewImage");
             preview.appendChild(img);
           };
 
