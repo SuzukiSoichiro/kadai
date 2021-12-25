@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 </head>
 <body>
-    <div>Teachable Machine Image Model</div>
+    <div>Teachable Machine Image Model2</div>
     <button type="button" onclick="init()">Start</button>
     
     <div id="webcam-container"></div>
@@ -12,6 +12,7 @@
     
     <input type="file" onChange="imgContain(event)">
     <div id="img-container"></div> 
+    <div id="error"></div>
     
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
@@ -24,7 +25,7 @@
 
         let model, webcam, labelContainer, maxPredictions;
         
-        function imgContain(event) {
+        function imgContain(event) {        
           var file = event.target.files[0];
           var fileType = event.target.files[0].type;
           var reader = new FileReader();
@@ -36,8 +37,11 @@
           }
             
           if (fileType != "image/png" && fileType != "image/jpeg") {
-              file = "You must upload image with /".png/" or /".jpeg/" extension.";
+              file = null;
+              document.getElementById("error").innerHTML = "You must upload image with /.png or /.jpeg extension.";
               return;
+          } else {
+              document.getElementById("error").innerHTML = null;
           }
 
           reader.onload = function(event) {
