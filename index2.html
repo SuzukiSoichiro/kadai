@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 </head>
 <body>
-    <div>Teachable Machine Image Model12</div>
+    <div>Teachable Machine Image Model</div>
     <button type="button" onclick="init()">Start</button>
     
     <div id="webcam-container"></div>
@@ -27,22 +27,19 @@
         function imgContain(event) {
           var file = event.target.files[0];
           var fileType = event.target.files[0].type;
-          
-          if (fileType != 'image/png' && fileType != 'image/jpeg') {
-            if (imgContainerView != null) {
-                imgContainer.removeChild(imgContainerView);
-            }
-              file = "You must upload image with /".png/" or /".jpeg/" extension.";
-              return;
-          }
-          
           var reader = new FileReader();
           var imgContainer = document.getElementById("img-container");
           var imgContainerView = document.getElementById("img-container-view");
-
+            
           if (imgContainerView != null) {
             imgContainer.removeChild(imgContainerView);
           }
+            
+          if (fileType != "image/png" && fileType != "image/jpeg") {
+              file = "You must upload image with /".png/" or /".jpeg/" extension.";
+              return;
+          }
+
           reader.onload = function(event) {
             var img = document.createElement("img");
             img.setAttribute("src", reader.result);
