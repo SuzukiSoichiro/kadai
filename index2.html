@@ -29,7 +29,10 @@
           var fileType = event.target.files[0].type;
           
           if (fileType != 'image/png' && fileType != 'image/jpeg') {
-              file = null;
+            if (imgContainerView != null) {
+                imgContainer.removeChild(imgContainerView);
+            }
+              file = "You must upload image with /".png/" or /".jpeg/" extension.";
               return;
           }
           
