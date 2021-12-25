@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 </head>
 <body>
-    <div>Teachable Machine Image Model</div>
+    <div>Teachable Machine Image Model2</div>
     <button type="button" onclick="init()">Start</button>
     
     <div id="webcam-container"></div>
@@ -26,6 +26,9 @@
         
         function imgContain(event) {
           var file = event.target.files[0];
+            
+          alert(file);
+          
           var reader = new FileReader();
           var imgContainer = document.getElementById("img-container");
           var imgContainerView = document.getElementById("img-container-view");
