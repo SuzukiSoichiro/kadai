@@ -68,7 +68,8 @@
     var properties = propertiesList[query].split(".");
     var humanFeatures = humanFeaturesList[query].split(".");
     var aiFeatures = aiFeaturesList[query].split(".");
-    document.getElementById("title").innerHTML = area;
+    
+    document.getElementById("title").innerHTML = "判定結果：" + area;
     document.getElementById("answer").innerHTML = "画像の街並みに最も似ている地域は" + area + "です";
     
     for (var i = 0; i < properties.length; i++) {
