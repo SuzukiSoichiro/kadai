@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 </head>
 <body>
-    <div>Teachable Machine Image Model2</div>
+    <div>Teachable Machine Image Model</div>
     <button type="button" onclick="init()">Start</button>
     
     <div id="webcam-container"></div>
@@ -28,9 +28,9 @@
           var file = event.target.files[0];
           var fileType = event.target.files[0].type;
           alert(fileType);
-          if(fileType.split("/").[0] !== "image") {
-            alert("dood!");
-          }
+//           if(fileType.split("/").[0] !== "image") {
+//             alert("dood!");
+//           }
           var reader = new FileReader();
           var imgContainer = document.getElementById("img-container");
           var imgContainerView = document.getElementById("img-container-view");
