@@ -15,7 +15,7 @@
     <div class="left">
       <div>
         <h2>基本情報</h2>
-        <ul id="properties">
+        <ul id="propertiesList">
         </ul>
       </div>
     </div>
@@ -37,7 +37,7 @@
       "金沢"
     ];
     
-    const propertyName = [
+    const propertyNames = [
       "所在：",
       "人口：",
       "面積：",
@@ -45,7 +45,7 @@
       "説明："
     ];
     
-    const properties = [
+    const propertiesList = [
       "東京都八王子市.56万人.186平方km.高尾山.23区外では東京で最も大きな街",
       "埼玉県川越市.35万人.109平方km.時の鐘.かつての城下町であり埼玉で3番目に大きな街",
       "石川県金沢市.46万人.468平方km.兼六園.長い歴史を持ちかつて名古屋と並ぶほど栄えた街"
@@ -65,7 +65,7 @@
     
     var query = location.search.split("=")[1];
     var area = areas[query];
-    var property = properties[query];
+    var properties = propertiesList[query].split(".");
     var humanFeatures = humanFeaturesList[query].split(".");
     var aiFeatures = aiFeaturesList[query].split(".");
     document.getElementById("title").innerHTML = area;
@@ -73,7 +73,7 @@
     
     for (var i = 0; i < properties.length; i++) {
       var li = document.createElement('li');
-      li.textContent = property[i] + properties[i];
+      li.textContent = propertyNames[i] + properties[i];
       document.getElementById("properties").appendChild(li);                                              
     }
     
