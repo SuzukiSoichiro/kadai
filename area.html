@@ -33,8 +33,9 @@
     const humanFeaturesList = [
       "比較的新しめの住宅が多い.住宅やビルで視界が塞がれる.森や畑が多く存在する",
       "比較的新しめの住宅が多い.住宅やビルで視界が塞がれる.荒川などの水辺が多く存在する",
-      "古めの住宅や古民家が多い.閑散としており視界が開けている.森がかなり多く存在する",
+      "古めの住宅や古民家が多い.閑散としており視界が開けている.森がかなり多く存在する"
     ];
+                                                
     const AiFeaturesList = [
       "建物の色が明るく白が多い.画像全体に対する建物の占め率が高い.緑色の存在確率が高い",
       "建物の色が明るく白が多い.画像全体に対する建物の占め率が高い.青色の存在確率が高い",
@@ -49,7 +50,11 @@
     var humanFeatures = humanFeaturesList[query].split(".");
     var AiFeatures = AiFeaturesList[query].split(".");
     
-    var humanFeature
+    for (var i = 0; i < humanFeatures.length; i++) {
+      var li = document.createElement('li');
+      li.textcontent = humanFeatures[i];
+      document.getElementById("humanFeatures").appendChild(li);                                              
+    }
     
     document.getElementById("humanFeatures").innerHTML = ;
     document.getElementById("AIFeature")
