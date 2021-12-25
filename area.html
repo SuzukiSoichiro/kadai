@@ -14,11 +14,13 @@
   <div class="main">
     <div class="left">
       <h2>人間が見て取れる特徴</h2>
-      <div id="humanFeatures"></div>
+      <ul id="humanFeatures"">
+      </ul>
     </div>
     <div class="right">
       <h2>AIが見ている特徴</h2>
-      <div id="AIFeatures"></div>
+      <ul id="AIFeatures">
+      </ul>
     </div>
   </div>
   <script type="text/javascript">
@@ -28,21 +30,29 @@
       "金沢"
     ];
     
-    const humanFeatures = [
-      "",
-      "",
-      "",
+    const humanFeaturesList = [
+      "比較的新しめの住宅が多い.住宅やビルで視界が塞がれる.森や畑が多く存在する",
+      "比較的新しめの住宅が多い.住宅やビルで視界が塞がれる.荒川などの水辺が多く存在する",
+      "古めの住宅や古民家が多い.閑散としており視界が開けている.森がかなり多く存在する",
     ];
-    const AIFeatures = [
-      "",
-      "",
-      ""
+    const AIFeaturesList = [
+      "建物の色が明るく白が多い.画像全体に対する建物の占め率が高い.緑色の存在確率が高い",
+      "建物の色が明るく白が多い.画像全体に対する建物の占め率が高い.青色の存在確率が高い",
+      "建物の色が暗く茶や黒が多い.画像全体に対する建物の占め率が低い.緑色の存在確率がかなり高い"
     ];
     
     var query = location.search.split("=")[1];
     var area = areas[query];
     document.getElementById("title").innerHTML = "判別結果：" + area;
     document.getElementById("answer").innerHTML = "画像の街並みに最も似ている地域は" + area + "です";
+    
+    var humanFeatures = humanFeaturesList[query].split(".");
+    var AIFeatures = AIFeaturesList[query].split(".");
+    
+    var humanFeature
+    
+    document.getElementById("humanFeatures").innerHTML = ;
+    document.getElementById("AIFeature")
   </script>
 </body>
 </html>
