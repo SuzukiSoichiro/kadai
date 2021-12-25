@@ -13,14 +13,21 @@
   </div>
   <div class="main">
     <div class="left">
-      <h2>人間が見て取れる特徴</h2>
-      <ul id="humanFeatures">
-      </ul>
+      <div>
+        <h2>基本情報</h2>
+        <ul id="property">
+        </ul>
+      </div>
     </div>
     <div class="right">
-      <h2>AIが見ている特徴</h2>
-      <ul id="aiFeatures">
-      </ul>
+      <div>
+        <h2>人間が見て取れる特徴</h2>
+        <ul id="humanFeatures">
+        </ul>
+        <h2>AIが見ている特徴</h2>
+        <ul id="aiFeatures">
+        </ul>
+      </div>
     </div>
   </div>
   <script type="text/javascript">
@@ -28,6 +35,20 @@
       "八王子",
       "川越",
       "金沢"
+    ];
+    
+    const propertyName = [
+      "所在：",
+      "人口：",
+      "面積：",
+      "観光地：",
+      "説明："
+    ];
+    
+    const properties = [
+      "東京都八王子市.56万人.186平方km.高尾山.23区外では東京で最も大きな街",
+      "埼玉県川越市.35万人.109平方km.時の鐘.かつての城下町であり埼玉で3番目に大きな街",
+      "石川県金沢市.46万人.468平方km.兼六園.長い歴史を持ちかつて名古屋と並ぶほど栄えた街"
     ];
     
     const humanFeaturesList = [
@@ -44,10 +65,17 @@
     
     var query = location.search.split("=")[1];
     var area = areas[query];
+    var property = properties[query];
     var humanFeatures = humanFeaturesList[query].split(".");
     var aiFeatures = aiFeaturesList[query].split(".");
     document.getElementById("title").innerHTML = area;
     document.getElementById("answer").innerHTML = "画像の街並みに最も似ている地域は" + area + "です";
+    
+    for (var i = 0; i < properties.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = property[i] + properties[i];
+      document.getElementById("properties").appendChild(li);                                              
+    }
     
     for (var i = 0; i < humanFeatures.length; i++) {
       var li = document.createElement('li');
