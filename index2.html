@@ -26,9 +26,11 @@
         
         function imgContain(event) {
           var file = event.target.files[0];
-          var fileName = event.target.files[0].name;
-          alert(fileName);
-          
+          var fileType = event.target.files[0].type;
+          alert(fileType);
+          if(fileType.split("/").[0] !== "image") {
+            alert("dood!");
+          }
           var reader = new FileReader();
           var imgContainer = document.getElementById("img-container");
           var imgContainerView = document.getElementById("img-container-view");
