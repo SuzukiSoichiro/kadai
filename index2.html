@@ -7,7 +7,7 @@
     <div>Teachable Machine Image Model2</div>
     <button type="button" onclick="init()">Start</button>
     
-    <div id="webcam-container"></div>
+<!--     <div id="webcam-container"></div> -->
     <div id="label-container"></div>
     
     <input type="file" onChange="imgContain(event)">
@@ -23,7 +23,7 @@
         // the link to your model provided by Teachable Machine export panel
         const URL = "https://teachablemachine.withgoogle.com/models/RXZ1nwsB7/";
 
-        let model, webcam, labelContainer, maxPredictions;
+        let model, img, labelContainer, maxPredictions;
         
         function imgContain(event) {        
           var file = event.target.files[0];
@@ -38,14 +38,14 @@
             
           if (fileType != "image/png" && fileType != "image/jpeg") {
               file = null;
-              document.getElementById("error").innerHTML = "You must upload image with /.png or /.jpeg extension.";
+              document.getElementById("error").innerHTML = "You must upload image with .png or .jpeg extension.";
               return;
           } else {
               document.getElementById("error").innerHTML = null;
           }
 
           reader.onload = function(event) {
-            var img = document.createElement("img");
+            img = document.createElement("img");
             img.setAttribute("src", reader.result);
             img.setAttribute("id", "img-container-view");
             imgContainer.appendChild(img);
@@ -67,14 +67,14 @@
             maxPredictions = model.getTotalClasses();
 
             // Convenience function to setup a webcam
-            const flip = true; // whether to flip the webcam
-            webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
-            await webcam.setup(); // request access to the webcam
-            await webcam.play();
-            window.requestAnimationFrame(loop);
+//             const flip = true; // whether to flip the webcam
+//             webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+//             await webcam.setup(); // request access to the webcam
+//             await webcam.play();
+//             window.requestAnimationFrame(loop);
 
             // append elements to the DOM
-            document.getElementById("webcam-container").appendChild(webcam.canvas);
+//             document.getElementById("webcam-container").appendChild(img);
             labelContainer = document.getElementById("label-container");
             for (let i = 0; i < maxPredictions; i++) { // and class labels
                 labelContainer.appendChild(document.createElement("div"));
@@ -82,15 +82,15 @@
         }
 
         async function loop() {
-            webcam.update(); // update the webcam frame
-            await predict();
-            window.requestAnimationFrame(loop);
+//             webcam.update(); // update the webcam frame
+            predict();
+//             window.requestAnimationFrame(loop);
         }
 
         // run the webcam image through the image model
         async function predict() {
             // predict can take in an image, video or canvas html element
-            const prediction = await model.predict(webcam.canvas);
+            const prediction = await model.predict(img);
             for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction =
                     prediction[i].className + ": " + prediction[i].probability.toFixed(2);
