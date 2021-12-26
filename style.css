@@ -1,1 +1,38 @@
+body {
+  margin: 0;
+}
+
+.header {
+  display : grid;
+	grid-template-areas : "h1 h2";
+	grid-template-column : 1fr 1fr;
+	background-color : #016789;
+	color : #fff;
+	margin : 0;
+}
+
+#header h1{
+	text-align : right;
+	margin-right : 5px;
+}
+
+#header h2{
+	margin-top : 30px;
+}
+
+.main {
+	border-left : solid 1px #000000;
+	border-right : solid 1px #000000;
+}
+
+.container{
+	display : grid;
+	grid-template-areas : "leftside main rightside";
+	grid-template-columns : 1fr 3fr 1fr;
+}
+
+.footer {
+  border-top: solid 1px #000000;
+}
+
 
