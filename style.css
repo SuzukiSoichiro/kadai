@@ -3,8 +3,8 @@ body {
 }
 
 .header {
-/* 	display: grid;
-	grid-template-areas: "h1 h2";
+	display: grid;
+/* 	grid-template-areas: "h1 h2";
 	grid-template-column: 1fr 1fr; */
 	background-color: #016789;
 	color: #fff;
