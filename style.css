@@ -1,9 +1,9 @@
 body {
-  margin: 0;
+  	margin: 0;
 }
 
 .header {
-  display : grid;
+  	display : grid;
 	grid-template-areas : "h1 h2";
 	grid-template-column : 1fr 1fr;
 	background-color : #016789;
@@ -11,12 +11,12 @@ body {
 	margin : 0;
 }
 
-#header h1{
+.header h1{
 	text-align : right;
 	margin-right : 5px;
 }
 
-#header h2{
+.header h2{
 	margin-top : 30px;
 }
 
